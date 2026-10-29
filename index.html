@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jejak Bersama Kawan</title>
+    <meta name="description" content="Tempat menyimpan cerita, foto, dan kenangan bersama kawan.">
+
+    <style>
+        :root {
+            --bg: #080808;
+            --surface: #111111;
+            --surface-light: #181818;
+            --white: #ffffff;
+            --text: #c5c5c5;
+            --muted: #777777;
+            --border: #292929;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 88%);
+            margin: auto;
+        }
+
+        /* LOGIN DAN DAFTAR */
+
+        .auth-section {
+            width: min(420px, 88%);
+            margin: 38px auto;
+            padding: 26px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .auth-section h2 {
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 4px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .auth-form label {
+            display: block;
+            color: var(--text);
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .auth-form input {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: #080808;
+            color: white;
+            font-size: 14px;
+        }
+
+        .auth-form input:focus {
+            outline: 1px solid #aaa;
+            border-color: #aaa;
+        }
+
+        .auth-submit {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background: white;
+            color: #080808;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .auth-submit:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+        .auth-message {
+            min-height: 20px;
+            margin-top: 13px;
+            color: var(--text);
+            text-align: center;
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .auth-switch-row {
+            margin-top: 14px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .auth-switch {
+            margin-left: 4px;
+            padding: 2px;
+            border: none;
+            background: transparent;
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .auth-account-row {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            color: var(--text);
+            font-size: 12px;
+        }
+
+        .auth-logout {
+            padding: 7px 12px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 8, 8, 0.94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            min-height: 76px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--muted);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text);
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 490px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 100px 0 90px;
+            border-bottom: 1px solid var(--border);
+            background: radial-gradient(
+                ellipse at 50% 0%,
+                #202020 0%,
+                #0b0b0b 48%,
+                #080808 78%
+            );
+        }
+
+        .hero-content {
+            max-width: 780px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 6px 13px;
+            border: 1px solid #383838;
+            border-radius: 30px;
+            color: #b5b5b5;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1.08;
+            letter-spacing: -3px;
+            margin: 28px 0 20px;
+        }
+
+        .hero h1 span {
+            color: #858585;
+        }
+
+        .hero p {
+            max-width: 570px;
+            margin: auto;
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .hero-actions {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 22px;
+            border: 1px solid white;
+            border-radius: 4px;
+            background: white;
+            color: #080808;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #d7d7d7;
+            border-color: #d7d7d7;
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            color: white;
+            background: transparent;
+            border-color: #454545;
+        }
+
+        .button-outline:hover {
+            color: white;
+            background: #191919;
+            border-color: #777;
+        }
+
+        /* BAGIAN UMUM */
+
+        section.content-section {
+            padding: 85px 0;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .section-label {
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(27px, 4vw, 38px);
+            line-height: 1.25;
+            letter-spacing: -1px;
+            margin-top: 8px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .member-count {
+            flex-shrink: 0;
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 8px 13px;
+            font-size: 12px;
+        }
+
+        /* KARTU ANGGOTA */
+
+        .members {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .member {
+            width: 100%;
+            text-align: left;
+            color: white;
+            padding: 22px 17px;
+            min-height: 185px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            cursor: pointer;
+            transition: border-color 0.25s, background 0.25s, transform 0.25s;
+        }
+
+        .member:hover {
+            background: var(--surface-light);
+            border-color: #777;
+            transform: translateY(-4px);
+        }
+
+        .member.active {
+            background: #1a1a1a;
+            border-color: #eee;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #555;
+            border-radius: 50%;
+            background: #202020;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 19px;
+        }
+
+        .member-number {
+            display: block;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        .member h3 {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 5px;
+            overflow-wrap: anywhere;
+        }
+
+        .member-detail {
+            display: none;
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 10px;
+            border-top: 1px solid #383838;
+            padding-top: 9px;
+        }
+
+        .member.active .member-detail {
+            display: block;
+        }
+
+        /* GALERI */
+
+        .gallery-section {
+            border-top: 1px solid var(--border);
+            background: #0c0c0c;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .photo-card {
+            min-width: 0;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            transition: border-color 0.2s;
+        }
+
+        .photo-card:hover {
+            border-color: #666;
+        }
+
+        .photo-placeholder {
+            min-height: 215px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(145deg, #1b1b1b, #101010);
+            color: #777;
+        }
+
+        .photo-symbol {
+            width: 47px;
+            height: 47px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #414141;
+            border-radius: 50%;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .photo-placeholder h3 {
+            color: #d8d8d8;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .photo-placeholder p {
+            margin-top: 5px;
+            font-size: 11px;
+        }
+
+        .photo-caption {
+            padding: 15px 17px;
+            color: #bdbdbd;
+            font-size: 12px;
+        }
+
+        .gallery-note {
+            margin-top: 22px;
+            padding: 15px 18px;
+            border-left: 2px solid #777;
+            background: #121212;
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .footer-brand {
+            color: #ddd;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            .members {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+
+            .auth-section {
+                margin: 25px auto;
+                padding: 22px;
+            }
+
+            .navbar {
+                min-height: 70px;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                padding: 15px 0;
+            }
+
+            .logo {
+                font-size: 14px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 23px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 420px;
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            section.content-section {
+                padding: 60px 0;
+            }
+
+            .section-heading {
+                align-items: start;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .members {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .member {
+                min-height: 175px;
+                padding: 17px 13px;
+            }
+
+            .member h3 {
+                font-size: 13px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-placeholder {
+                min-height: 190px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOGIN DAN DAFTAR -->
+    <section class="auth-section" id="auth-section" aria-labelledby="auth-title">
+        <h2 id="auth-title">Login Anggota</h2>
+        <p class="auth-subtitle">Jejak Bersama Kawan</p>
+
+        <form class="auth-form" id="auth-form">
+            <label for="auth-email">Email</label>
+            <input
+                id="auth-email"
+                name="email"
+                type="email"
+                placeholder="nama@email.com"
+                autocomplete="email"
+                required
+            >
+
+            <label for="auth-password">Password</label>
+            <input
+                id="auth-password"
+                name="password"
+                type="password"
+                placeholder="Minimal 6 karakter"
+                minlength="6"
+                autocomplete="current-password"
+                required
+            >
+
+            <button class="auth-submit" id="auth-submit" type="submit">
+                Login
+            </button>
+        </form>
+
+        <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
+
+        <p class="auth-switch-row">
+            <span id="auth-switch-text">Belum punya akun?</span>
+            <button class="auth-switch" id="auth-switch" type="button">
+                Daftar
+            </button>
+        </p>
+
+        <div class="auth-account-row" id="auth-account-row">
+            <span id="auth-account-email"></span>
+            <button class="auth-logout" id="auth-logout" type="button">
+                Keluar
+            </button>
+        </div>
+    </section>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="container navbar">
+            <a href="#beranda" class="logo">
+                JEJAK <span>BERSAMA KAWAN.</span>
+            </a>
+
+            <nav aria-label="Navigasi utama">
+                <a href="#beranda">Beranda</a>
+                <a href="#anggota">Anggota</a>
+                <a href="#galeri">Galeri</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="beranda">
+            <div class="container hero-content">
+                <span class="eyebrow">
+                    Persahabatan · Kenangan · Kebersamaan
+                </span>
+
+                <h1>
+                    Setiap Foto,<br>
+                    <span>Punya Cerita.</span>
+                </h1>
+
+                <p>
+                    Bukan hanya tentang foto yang kita simpan,
+                    tetapi juga tentang waktu yang kita habiskan
+                    bersama dan cerita yang tumbuh di dalamnya.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#galeri" class="button">
+                        Jelajahi Kenangan ↗
+                    </a>
+
+                    <a href="#anggota" class="button button-outline">
+                        Kenali Anggota
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DAFTAR ANGGOTA -->
+        <section class="content-section" id="anggota">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">Orang-orang di balik cerita</span>
+                        <h2 class="section-title">Teman Seperjalanan.</h2>
+                        <p class="section-description">
+                            Sepuluh nama, banyak cerita, satu kebersamaan.
+                        </p>
+                    </div>
+
+                    <div class="member-count">10 ANGGOTA</div>
+                </div>
+
+                <div class="members">
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">AA</span>
+                        <span class="member-number">ANGGOTA 01</span>
+                        <h3>Andika Akbar</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">JJ</span>
+                        <span class="member-number">ANGGOTA 02</span>
+                        <h3>Julian Janitus</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">A</span>
+                        <span class="member-number">ANGGOTA 03</span>
+                        <h3>Andrean</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">MS</span>
+                        <span class="member-number">ANGGOTA 04</span>
+                        <h3>Machwell Seirn</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">DA</span>
+                        <span class="member-number">ANGGOTA 05</span>
+                        <h3>Dimas Aditya</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">ZE</span>
+                        <span class="member-number">ANGGOTA 06</span>
+                        <h3>Zakaria Editia</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">OS</span>
+                        <span class="member-number">ANGGOTA 07</span>
+                        <h3>Octa Suhalim</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">AP</span>
+                        <span class="member-number">ANGGOTA 08</span>
+                        <h3>Albert Palndino</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">MQ</span>
+                        <span class="member-number">ANGGOTA 09</span>
+                        <h3>Muhammad Qufron</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                    <button class="member" type="button"
+                        aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">EA</span>
+                        <span class="member-number">ANGGOTA 10</span>
+                        <h3>Eko Alan Saputra</h3>
+                        <span class="member-detail">
+                            Bagian dari cerita Jejak Bersama Kawan.
+                        </span>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI KENANGAN -->
+        <section class="content-section gallery-section" id="galeri">
+            <div class="container">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">Kumpulan momen</span>
+                        <h2 class="section-title">Galeri Kenangan.</h2>
+                        <p class="section-description">
+                            Momen sederhana yang berarti bagi kita.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery">
+
+                    <article class="photo-card">
+                        <div class="photo-placeholder">
+                            <span class="photo-symbol">+</span>
+                            <h3>Awal Sebuah Cerita</h3>
+                            <p>Tempat foto kenangan pertama.</p>
+                        </div>
+                        <div class="photo-caption">KENANGAN / 01</div>
+                    </article>
+
+                    <article class="photo-card">
+                        <div class="photo-placeholder">
+                            <span class="photo-symbol">+</span>
+                            <h3>Waktu Bersama</h3>
+                            <p>Tempat menyimpan momen kebersamaan.</p>
+                        </div>
+                        <div class="photo-caption">KENANGAN / 02</div>
+                    </article>
+
+                    <article class="photo-card">
+                        <div class="photo-placeholder">
+                            <span class="photo-symbol">+</span>
+                            <h3>Cerita Berikutnya</h3>
+                            <p>Masih banyak kenangan menanti.</p>
+                        </div>
+                        <div class="photo-caption">KENANGAN / 03</div>
+                    </article>
+
+                </div>
+
+                <div class="gallery-note">
+                    Galeri ini masih berupa tampilan contoh.
+                    Fitur unggah foto online akan dibuat pada tahap berikutnya.
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <span class="footer-brand">JEJAK BERSAMA KAWAN.</span>
+            <span>© 2026 — Dibuat untuk menyimpan kenangan.</span>
+        </div>
+    </footer>
+
+    <!-- FUNGSI KARTU ANGGOTA -->
+    <script>
+        function pilihAnggota(kartu) {
+            const sedangAktif = kartu.classList.contains("active");
+
+            document.querySelectorAll(".member").forEach(function(item) {
+                item.classList.remove("active");
+                item.setAttribute("aria-expanded", "false");
+            });
+
+            if (!sedangAktif) {
+                kartu.classList.add("active");
+                kartu.setAttribute("aria-expanded", "true");
+            }
+        }
+    </script>
+
+    <!-- SUPABASE JAVASCRIPT LIBRARY -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- FUNGSI LOGIN DAN DAFTAR SUPABASE -->
+    <script>
+        const SUPABASE_URL = "https://iyxkdbyfbenaxgaqynmi.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_cUO0qeGtcDjTersVaf8scA_UPTx4MJ-";
+
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+        const authForm = document.getElementById("auth-form");
+        const authTitle = document.getElementById("auth-title");
+        const authEmail = document.getElementById("auth-email");
+        const authPassword = document.getElementById("auth-password");
+        const authSubmit = document.getElementById("auth-submit");
+        const authMessage = document.getElementById("auth-message");
+        const authSwitch = document.getElementById("auth-switch");
+        const authSwitchText = document.getElementById("auth-switch-text");
+        const authAccountRow = document.getElementById("auth-account-row");
+        const authAccountEmail = document.getElementById("auth-account-email");
+        const authLogout = document.getElementById("auth-logout");
+
+        let isSignUpMode = false;
+
+        function showAuthMessage(message, isError = false) {
+            authMessage.textContent = message;
+            authMessage.style.color = isError ? "#ff9999" : "#c5c5c5";
+        }
+
+        function setAuthMode(signUp) {
+            isSignUpMode = signUp;
+
+            authTitle.textContent = signUp
+                ? "Daftar Anggota"
+                : "Login Anggota";
+
+            authSubmit.textContent = signUp
+                ? "Buat Akun"
+                : "Login";
+
+            authSwitchText.textContent = signUp
+                ? "Sudah punya akun?"
+                : "Belum punya akun?";
+
+            authSwitch.textContent = signUp
+                ? "Login"
+                : "Daftar";
+
+            authPassword.autocomplete = signUp
+                ? "new-password"
+                : "current-password";
+
+            showAuthMessage("");
+        }
+
+        authSwitch.addEventListener("click", function() {
+            setAuthMode(!isSignUpMode);
+        });
+
+        function renderAuthStatus(session) {
+            const user = session ? session.user : null;
+
+            if (user) {
+                authAccountRow.style.display = "flex";
+                authAccountEmail.textContent =
+                    "Masuk sebagai " + (user.email || "anggota");
+            } else {
+                authAccountRow.style.display = "none";
+                authAccountEmail.textContent = "";
+            }
+        }
+
+        authForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const email = authEmail.value.trim();
+            const password = authPassword.value;
+
+            if (!email || !password) {
+                showAuthMessage(
+                    "Masukkan email dan password terlebih dahulu.",
+                    true
+                );
+                return;
+            }
+
+            authSubmit.disabled = true;
+            authSubmit.textContent = isSignUpMode
+                ? "Membuat akun..."
+                : "Memproses login...";
+
+            showAuthMessage("");
+
+            try {
+                if (isSignUpMode) {
+                    const { data, error } =
+                        await supabaseClient.auth.signUp({
+                            email: email,
+                            password: password
+                        });
+
+                    if (error) {
+                        throw error;
+                    }
+
+                    if (data.session) {
+                        showAuthMessage(
+                            "Akun berhasil dibuat dan kamu sudah masuk."
+                        );
+                    } else {
+                        showAuthMessage(
+                            "Pendaftaran berhasil dikirim. Periksa email untuk konfirmasi akun jika diminta."
+                        );
+                    }
+                } else {
+                    const { data, error } =
+                        await supabaseClient.auth.signInWithPassword({
+                            email: email,
+                            password: password
+                        });
+
+                    if (error) {
+                        throw error;
+                    }
+
+                    renderAuthStatus(data.session);
+                    showAuthMessage("Login berhasil.");
+                }
+            } catch (error) {
+                showAuthMessage(
+                    error.message || "Terjadi kesalahan. Coba lagi.",
+                    true
+                );
+            } finally {
+                authSubmit.disabled = false;
+                authSubmit.textContent = isSignUpMode
+                    ? "Buat Akun"
+                    : "Login";
+            }
+        });
+
+        authLogout.addEventListener("click", async function() {
+            authLogout.disabled = true;
+
+            try {
+                const { error } = await supabaseClient.auth.signOut();
+
+                if (error) {
+                    throw error;
+                }
+
+                renderAuthStatus(null);
+                showAuthMessage("Kamu sudah keluar dari akun.");
+            } catch (error) {
+                showAuthMessage(
+                    error.message || "Gagal keluar dari akun.",
+                    true
+                );
+            } finally {
+                authLogout.disabled = false;
+            }
+        });
+
+        supabaseClient.auth.onAuthStateChange(function(_event, session) {
+            renderAuthStatus(session);
+        });
+
+        async function loadInitialAuthStatus() {
+            const { data, error } = await supabaseClient.auth.getSession();
+
+            if (error) {
+                showAuthMessage(
+                    "Tidak dapat memeriksa sesi login: " + error.message,
+                    true
+                );
+                return;
+            }
+
+            renderAuthStatus(data.session);
+        }
+
+        loadInitialAuthStatus();
+    </script>
+
+</body>
+</html>
