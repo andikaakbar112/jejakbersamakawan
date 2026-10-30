@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Jejak Bersama Kawan</title>
     <meta name="description" content="Tempat menyimpan cerita, foto, dan kenangan bersama kawan.">
 
@@ -19,41 +17,19 @@
             --border: #292929;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: var(--bg);
             color: var(--white);
             line-height: 1.7;
         }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input {
-            font: inherit;
-        }
-
-        .container {
-            width: min(1120px, 88%);
-            margin: auto;
-        }
+        a { color: inherit; text-decoration: none; }
+        button, input, textarea { font: inherit; }
+        .container { width: min(1120px, 88%); margin: auto; }
 
         /* LOGIN DAN DAFTAR */
-
         .auth-section {
             width: min(420px, 88%);
             margin: 38px auto;
@@ -62,690 +38,173 @@
             border: 1px solid var(--border);
             border-radius: 8px;
         }
-
-        .auth-section h2 {
-            text-align: center;
-            font-size: 25px;
-            margin-bottom: 4px;
-        }
-
-        .auth-subtitle {
-            text-align: center;
-            color: var(--muted);
-            font-size: 13px;
-            margin-bottom: 22px;
-        }
-
-        .auth-form label {
-            display: block;
-            color: var(--text);
-            font-size: 13px;
-            margin-bottom: 6px;
-        }
-
+        .auth-section h2 { text-align: center; font-size: 25px; margin-bottom: 4px; }
+        .auth-subtitle { text-align: center; color: var(--muted); font-size: 13px; margin-bottom: 22px; }
+        .auth-form label { display: block; color: var(--text); font-size: 13px; margin-bottom: 6px; }
         .auth-form input {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 16px;
-            border: 1px solid #444;
-            border-radius: 5px;
-            background: #080808;
-            color: white;
-            font-size: 14px;
+            display: block; width: 100%; padding: 12px; margin-bottom: 16px;
+            border: 1px solid #444; border-radius: 5px; background: #080808;
+            color: white; font-size: 14px;
         }
-
-        .auth-form input:focus {
-            outline: 1px solid #aaa;
-            border-color: #aaa;
-        }
-
+        .auth-form input:focus { outline: 1px solid #aaa; border-color: #aaa; }
         .auth-submit {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid white;
-            border-radius: 5px;
-            background: white;
-            color: #080808;
-            font-weight: bold;
-            cursor: pointer;
+            width: 100%; padding: 12px; border: 1px solid white; border-radius: 5px;
+            background: white; color: #080808; font-weight: bold; cursor: pointer;
         }
-
-        .auth-submit:disabled {
-            opacity: 0.6;
-            cursor: wait;
-        }
-
+        .auth-submit:disabled { opacity: .6; cursor: wait; }
         .auth-message {
-            min-height: 20px;
-            margin-top: 13px;
-            color: var(--text);
-            text-align: center;
-            font-size: 13px;
-            overflow-wrap: anywhere;
+            min-height: 20px; margin-top: 13px; color: var(--text);
+            text-align: center; font-size: 13px; overflow-wrap: anywhere;
         }
-
-        .auth-switch-row {
-            margin-top: 14px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
+        .auth-switch-row { margin-top: 14px; text-align: center; color: var(--muted); font-size: 13px; }
         .auth-switch {
-            margin-left: 4px;
-            padding: 2px;
-            border: none;
-            background: transparent;
-            color: white;
-            text-decoration: underline;
-            cursor: pointer;
+            margin-left: 4px; padding: 2px; border: none; background: transparent;
+            color: white; text-decoration: underline; cursor: pointer;
         }
-
         .auth-account-row {
-            display: none;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 14px;
-            padding-top: 14px;
-            border-top: 1px solid var(--border);
-            color: var(--text);
-            font-size: 12px;
+            display: none; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 12px; margin-top: 14px; padding-top: 14px;
+            border-top: 1px solid var(--border); color: var(--text); font-size: 12px;
         }
-
         .auth-logout {
-            padding: 7px 12px;
-            border: 1px solid #555;
-            border-radius: 4px;
-            background: transparent;
-            color: white;
-            cursor: pointer;
+            padding: 7px 12px; border: 1px solid #555; border-radius: 4px;
+            background: transparent; color: white; cursor: pointer;
         }
 
         /* NAVBAR */
-
         header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(8, 8, 8, 0.94);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(12px);
+            position: sticky; top: 0; z-index: 100; background: rgba(8, 8, 8, .94);
+            border-bottom: 1px solid var(--border); backdrop-filter: blur(12px);
         }
-
-        .navbar {
-            min-height: 76px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .logo {
-            font-size: 16px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: var(--muted);
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: var(--text);
-            font-size: 13px;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: white;
-        }
+        .navbar { min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+        .logo { font-size: 16px; font-weight: 800; letter-spacing: 2px; white-space: nowrap; }
+        .logo span { color: var(--muted); }
+        nav { display: flex; gap: 30px; }
+        nav a { color: var(--text); font-size: 13px; transition: color .2s; }
+        nav a:hover { color: white; }
 
         /* HERO */
-
         .hero {
-            min-height: 490px;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding: 100px 0 90px;
-            border-bottom: 1px solid var(--border);
-            background: radial-gradient(
-                ellipse at 50% 0%,
-                #202020 0%,
-                #0b0b0b 48%,
-                #080808 78%
-            );
+            min-height: 490px; display: flex; align-items: center; text-align: center;
+            padding: 100px 0 90px; border-bottom: 1px solid var(--border);
+            background: radial-gradient(ellipse at 50% 0%, #202020 0%, #0b0b0b 48%, #080808 78%);
         }
-
-        .hero-content {
-            max-width: 780px;
-            margin: auto;
-        }
-
+        .hero-content { max-width: 780px; margin: auto; }
         .eyebrow {
-            display: inline-block;
-            padding: 6px 13px;
-            border: 1px solid #383838;
-            border-radius: 30px;
-            color: #b5b5b5;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            display: inline-block; padding: 6px 13px; border: 1px solid #383838;
+            border-radius: 30px; color: #b5b5b5; font-size: 10px;
+            letter-spacing: 3px; text-transform: uppercase;
         }
-
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 78px);
-            line-height: 1.08;
-            letter-spacing: -3px;
-            margin: 28px 0 20px;
-        }
-
-        .hero h1 span {
-            color: #858585;
-        }
-
-        .hero p {
-            max-width: 570px;
-            margin: auto;
-            color: var(--text);
-            font-size: 15px;
-        }
-
-        .hero-actions {
-            margin-top: 32px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
+        .hero h1 { font-size: clamp(42px, 7vw, 78px); line-height: 1.08; letter-spacing: -3px; margin: 28px 0 20px; }
+        .hero h1 span { color: #858585; }
+        .hero p { max-width: 570px; margin: auto; color: var(--text); font-size: 15px; }
+        .hero-actions { margin-top: 32px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
         .button {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            padding: 12px 22px;
-            border: 1px solid white;
-            border-radius: 4px;
-            background: white;
-            color: #080808;
-            font-size: 13px;
-            font-weight: 700;
-            transition: 0.2s;
+            display: inline-flex; justify-content: center; align-items: center; padding: 12px 22px;
+            border: 1px solid white; border-radius: 4px; background: white; color: #080808;
+            font-size: 13px; font-weight: 700; transition: .2s;
         }
-
-        .button:hover {
-            background: #d7d7d7;
-            border-color: #d7d7d7;
-            transform: translateY(-2px);
-        }
-
-        .button-outline {
-            color: white;
-            background: transparent;
-            border-color: #454545;
-        }
-
-        .button-outline:hover {
-            color: white;
-            background: #191919;
-            border-color: #777;
-        }
+        .button:hover { background: #d7d7d7; border-color: #d7d7d7; transform: translateY(-2px); }
+        .button-outline { color: white; background: transparent; border-color: #454545; }
+        .button-outline:hover { color: white; background: #191919; border-color: #777; }
 
         /* BAGIAN UMUM */
-
-        section.content-section {
-            padding: 85px 0;
-        }
-
+        section.content-section { padding: 85px 0; }
         .section-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 24px;
-            margin-bottom: 32px;
+            display: flex; justify-content: space-between; align-items: end;
+            gap: 24px; margin-bottom: 32px;
         }
-
-        .section-label {
-            color: var(--muted);
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            font-size: clamp(27px, 4vw, 38px);
-            line-height: 1.25;
-            letter-spacing: -1px;
-            margin-top: 8px;
-        }
-
-        .section-description {
-            color: var(--muted);
-            font-size: 13px;
-            margin-top: 8px;
-        }
-
-        .member-count {
-            flex-shrink: 0;
-            color: var(--text);
-            border: 1px solid var(--border);
-            padding: 8px 13px;
-            font-size: 12px;
-        }
+        .section-label { color: var(--muted); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; }
+        .section-title { font-size: clamp(27px, 4vw, 38px); line-height: 1.25; letter-spacing: -1px; margin-top: 8px; }
+        .section-description { color: var(--muted); font-size: 13px; margin-top: 8px; }
+        .member-count { flex-shrink: 0; color: var(--text); border: 1px solid var(--border); padding: 8px 13px; font-size: 12px; }
 
         /* KARTU ANGGOTA */
-
-        .members {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 14px;
-        }
-
+        .members { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
         .member {
-            width: 100%;
-            text-align: left;
-            color: white;
-            padding: 22px 17px;
-            min-height: 185px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 7px;
-            cursor: pointer;
-            transition: border-color 0.25s, background 0.25s, transform 0.25s;
+            width: 100%; text-align: left; color: white; padding: 22px 17px; min-height: 185px;
+            background: var(--surface); border: 1px solid var(--border); border-radius: 7px;
+            cursor: pointer; transition: border-color .25s, background .25s, transform .25s;
         }
-
-        .member:hover {
-            background: var(--surface-light);
-            border-color: #777;
-            transform: translateY(-4px);
-        }
-
-        .member.active {
-            background: #1a1a1a;
-            border-color: #eee;
-        }
-
+        .member:hover { background: var(--surface-light); border-color: #777; transform: translateY(-4px); }
+        .member.active { background: #1a1a1a; border-color: #eee; }
         .avatar {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid #555;
-            border-radius: 50%;
-            background: #202020;
-            color: white;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 19px;
+            width: 48px; height: 48px; display: flex; justify-content: center; align-items: center;
+            border: 1px solid #555; border-radius: 50%; background: #202020; color: white;
+            font-size: 14px; font-weight: 700; letter-spacing: 1px; margin-bottom: 19px;
         }
+        .member-number { display: block; color: var(--muted); font-size: 10px; letter-spacing: 1.5px; }
+        .member h3 { font-size: 14px; line-height: 1.5; margin-top: 5px; overflow-wrap: anywhere; }
+        .member-detail { display: none; color: #aaa; font-size: 12px; margin-top: 10px; border-top: 1px solid #383838; padding-top: 9px; }
+        .member.active .member-detail { display: block; }
 
-        .member-number {
-            display: block;
-            color: var(--muted);
-            font-size: 10px;
-            letter-spacing: 1.5px;
+        /* GALERI DAN UPLOAD */
+        .gallery-section { border-top: 1px solid var(--border); background: #0c0c0c; }
+        .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+        .photo-card { min-width: 0; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 7px; transition: border-color .2s; }
+        .photo-card:hover { border-color: #666; }
+        .upload-section { margin-bottom: 30px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 7px; }
+        .upload-section h3 { font-size: 17px; margin-bottom: 6px; }
+        .upload-description { color: var(--muted); font-size: 12px; margin-bottom: 18px; }
+        .upload-form label { display: block; color: var(--text); font-size: 12px; margin-bottom: 6px; }
+        .upload-form input, .upload-form textarea {
+            display: block; width: 100%; padding: 12px; margin-bottom: 15px;
+            border: 1px solid #444; border-radius: 5px; background: #080808;
+            color: white; font: inherit; font-size: 13px;
         }
-
-        .member h3 {
-            font-size: 14px;
-            line-height: 1.5;
-            margin-top: 5px;
-            overflow-wrap: anywhere;
+        .upload-form textarea { min-height: 85px; resize: vertical; }
+        .upload-form input:focus, .upload-form textarea:focus { outline: 1px solid #aaa; }
+        .upload-form input[type="file"] { cursor: pointer; }
+        .upload-button {
+            padding: 11px 20px; border: 1px solid white; border-radius: 4px;
+            background: white; color: #080808; font-weight: bold; font-size: 13px; cursor: pointer;
         }
-
-        .member-detail {
-            display: none;
-            color: #aaa;
-            font-size: 12px;
-            margin-top: 10px;
-            border-top: 1px solid #383838;
-            padding-top: 9px;
-        }
-
-        .member.active .member-detail {
-            display: block;
-        }
-
-        /* GALERI */
-
-        .gallery-section {
-            border-top: 1px solid var(--border);
-            background: #0c0c0c;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .photo-card {
-            min-width: 0;
-            overflow: hidden;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 7px;
-            transition: border-color 0.2s;
-        }
-
-        .photo-card:hover {
-            border-color: #666;
-        }
-
-        .photo-placeholder {
-            min-height: 215px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(145deg, #1b1b1b, #101010);
-            color: #777;
-        }
-
-        .photo-symbol {
-            width: 47px;
-            height: 47px;
-            display: grid;
-            place-items: center;
-            border: 1px solid #414141;
-            border-radius: 50%;
-            font-size: 22px;
-            margin-bottom: 14px;
-        }
-
-        .photo-placeholder h3 {
-            color: #d8d8d8;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .photo-placeholder p {
-            margin-top: 5px;
-            font-size: 11px;
-        }
-
-        .photo-caption {
-            padding: 15px 17px;
-            color: #bdbdbd;
-            font-size: 12px;
-        }
-
-        .gallery-note {
-            margin-top: 22px;
-            padding: 15px 18px;
-            border-left: 2px solid #777;
-            background: #121212;
-            color: #999;
-            font-size: 12px;
-        }
-        
-/* FITUR UPLOAD FOTO */
-
-.upload-section {
-    margin-bottom: 30px;
-    padding: 24px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 7px;
-}
-
-.upload-section h3 {
-    font-size: 17px;
-    margin-bottom: 6px;
-}
-
-.upload-description {
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 18px;
-}
-
-.upload-form label {
-    display: block;
-    color: var(--text);
-    font-size: 12px;
-    margin-bottom: 6px;
-}
-
-.upload-form input,
-.upload-form textarea {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background: #080808;
-    color: white;
-    font: inherit;
-    font-size: 13px;
-}
-
-.upload-form textarea {
-    min-height: 85px;
-    resize: vertical;
-}
-
-.upload-form input:focus,
-.upload-form textarea:focus {
-    outline: 1px solid #aaa;
-}
-
-.upload-form input[type="file"] {
-    cursor: pointer;
-}
-
-.upload-button {
-    padding: 11px 20px;
-    border: 1px solid white;
-    border-radius: 4px;
-    background: white;
-    color: #080808;
-    font-weight: bold;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.upload-button:disabled {
-    opacity: 0.6;
-    cursor: wait;
-}
-
-.upload-message {
-    min-height: 20px;
-    margin-top: 12px;
-    color: var(--text);
-    font-size: 12px;
-    overflow-wrap: anywhere;
-}
-
-.upload-login-note {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.gallery-photo {
-    display: block;
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    background: #181818;
-}
-
-.photo-information {
-    padding: 15px 17px;
-}
-
-.photo-author {
-    color: white;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.photo-description {
-    margin-top: 5px;
-    color: #aaa;
-    font-size: 12px;
-    overflow-wrap: anywhere;
-}
-
-.photo-date {
-    margin-top: 10px;
-    color: var(--muted);
-    font-size: 10px;
-}
-
-.gallery-status {
-    grid-column: 1 / -1;
-    color: var(--muted);
-    font-size: 13px;
-    padding: 20px 0;
-}
-
+        .upload-button:disabled { opacity: .6; cursor: wait; }
+        .upload-message { min-height: 20px; margin-top: 12px; color: var(--text); font-size: 12px; overflow-wrap: anywhere; }
+        .upload-login-note { color: var(--muted); font-size: 13px; }
+        .gallery-photo { display: block; width: 100%; height: 230px; object-fit: cover; background: #181818; }
+        .photo-information { padding: 15px 17px; }
+        .photo-author { color: white; font-size: 13px; font-weight: bold; }
+        .photo-description { margin-top: 5px; color: #aaa; font-size: 12px; overflow-wrap: anywhere; }
+        .photo-date { margin-top: 10px; color: var(--muted); font-size: 10px; }
+        .gallery-status { grid-column: 1 / -1; color: var(--muted); font-size: 13px; padding: 20px 0; }
+        [hidden] { display: none !important; }
 
         /* FOOTER */
-
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            color: var(--muted);
-            font-size: 11px;
-        }
-
-        .footer-brand {
-            color: #ddd;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
+        footer { border-top: 1px solid var(--border); padding: 28px 0; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--muted); font-size: 11px; }
+        .footer-brand { color: #ddd; letter-spacing: 1px; font-weight: bold; }
 
         /* RESPONSIVE */
-
         @media (max-width: 900px) {
-            .members {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .gallery {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
+            .members { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
-
         @media (max-width: 600px) {
-            .container {
-                width: 90%;
-            }
-
-            .auth-section {
-                margin: 25px auto;
-                padding: 22px;
-            }
-
-            .navbar {
-                min-height: 70px;
-                flex-direction: column;
-                justify-content: center;
-                gap: 10px;
-                padding: 15px 0;
-            }
-
-            .logo {
-                font-size: 14px;
-            }
-
-            nav {
-                justify-content: center;
-                gap: 23px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .hero {
-                min-height: 420px;
-                padding: 70px 0;
-            }
-
-            .hero h1 {
-                letter-spacing: -1.5px;
-            }
-
-            .hero p {
-                font-size: 13px;
-            }
-
-            section.content-section {
-                padding: 60px 0;
-            }
-
-            .section-heading {
-                align-items: start;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .members {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 10px;
-            }
-
-            .member {
-                min-height: 175px;
-                padding: 17px 13px;
-            }
-
-            .member h3 {
-                font-size: 13px;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-placeholder {
-                min-height: 190px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
+            .container { width: 90%; }
+            .auth-section { margin: 25px auto; padding: 22px; }
+            .navbar { min-height: 70px; flex-direction: column; justify-content: center; gap: 10px; padding: 15px 0; }
+            .logo { font-size: 14px; }
+            nav { justify-content: center; gap: 23px; }
+            nav a { font-size: 12px; }
+            .hero { min-height: 420px; padding: 70px 0; }
+            .hero h1 { letter-spacing: -1.5px; }
+            .hero p { font-size: 13px; }
+            section.content-section { padding: 60px 0; }
+            .section-heading { align-items: start; flex-direction: column; gap: 15px; }
+            .members { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+            .member { min-height: 175px; padding: 17px 13px; }
+            .member h3 { font-size: 13px; }
+            .gallery { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .upload-section { padding: 18px; }
         }
-
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-            }
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; }
         }
     </style>
 </head>
-
 <body>
 
     <!-- LOGIN DAN DAFTAR -->
@@ -755,55 +214,31 @@
 
         <form class="auth-form" id="auth-form">
             <label for="auth-email">Email</label>
-            <input
-                id="auth-email"
-                name="email"
-                type="email"
-                placeholder="nama@email.com"
-                autocomplete="email"
-                required
-            >
+            <input id="auth-email" name="email" type="email" placeholder="nama@email.com" autocomplete="email" required>
 
             <label for="auth-password">Password</label>
-            <input
-                id="auth-password"
-                name="password"
-                type="password"
-                placeholder="Minimal 6 karakter"
-                minlength="6"
-                autocomplete="current-password"
-                required
-            >
+            <input id="auth-password" name="password" type="password" placeholder="Minimal 6 karakter" minlength="6" autocomplete="current-password" required>
 
-            <button class="auth-submit" id="auth-submit" type="submit">
-                Login
-            </button>
+            <button class="auth-submit" id="auth-submit" type="submit">Login</button>
         </form>
 
         <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
 
         <p class="auth-switch-row">
             <span id="auth-switch-text">Belum punya akun?</span>
-            <button class="auth-switch" id="auth-switch" type="button">
-                Daftar
-            </button>
+            <button class="auth-switch" id="auth-switch" type="button">Daftar</button>
         </p>
 
         <div class="auth-account-row" id="auth-account-row">
             <span id="auth-account-email"></span>
-            <button class="auth-logout" id="auth-logout" type="button">
-                Keluar
-            </button>
+            <button class="auth-logout" id="auth-logout" type="button">Keluar</button>
         </div>
     </section>
 
     <!-- NAVBAR -->
     <header>
         <div class="container navbar">
-            <a href="#beranda" class="logo">
-                JEJAK <span>BERSAMA KAWAN.</span>
-            </a>
-
+            <a href="#beranda" class="logo">JEJAK <span>BERSAMA KAWAN.</span></a>
             <nav aria-label="Navigasi utama">
                 <a href="#beranda">Beranda</a>
                 <a href="#anggota">Anggota</a>
@@ -813,33 +248,15 @@
     </header>
 
     <main>
-
         <!-- HERO -->
         <section class="hero" id="beranda">
             <div class="container hero-content">
-                <span class="eyebrow">
-                    Persahabatan · Kenangan · Kebersamaan
-                </span>
-
-                <h1>
-                    Setiap Foto,<br>
-                    <span>Punya Cerita.</span>
-                </h1>
-
-                <p>
-                    Bukan hanya tentang foto yang kita simpan,
-                    tetapi juga tentang waktu yang kita habiskan
-                    bersama dan cerita yang tumbuh di dalamnya.
-                </p>
-
+                <span class="eyebrow">Persahabatan · Kenangan · Kebersamaan</span>
+                <h1>Setiap Foto,<br><span>Punya Cerita.</span></h1>
+                <p>Bukan hanya tentang foto yang kita simpan, tetapi juga tentang waktu yang kita habiskan bersama dan cerita yang tumbuh di dalamnya.</p>
                 <div class="hero-actions">
-                    <a href="#galeri" class="button">
-                        Jelajahi Kenangan ↗
-                    </a>
-
-                    <a href="#anggota" class="button button-outline">
-                        Kenali Anggota
-                    </a>
+                    <a href="#galeri" class="button">Jelajahi Kenangan ↗</a>
+                    <a href="#anggota" class="button button-outline">Kenali Anggota</a>
                 </div>
             </div>
         </section>
@@ -847,212 +264,101 @@
         <!-- DAFTAR ANGGOTA -->
         <section class="content-section" id="anggota">
             <div class="container">
-
                 <div class="section-heading">
                     <div>
                         <span class="section-label">Orang-orang di balik cerita</span>
                         <h2 class="section-title">Teman Seperjalanan.</h2>
-                        <p class="section-description">
-                            Sepuluh nama, banyak cerita, satu kebersamaan.
-                        </p>
+                        <p class="section-description">Sepuluh nama, banyak cerita, satu kebersamaan.</p>
                     </div>
-
                     <div class="member-count">10 ANGGOTA</div>
                 </div>
 
                 <div class="members">
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">AA</span>
-                        <span class="member-number">ANGGOTA 01</span>
-                        <h3>Andika Akbar</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">AA</span><span class="member-number">ANGGOTA 01</span><h3>Andika Akbar</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">JJ</span>
-                        <span class="member-number">ANGGOTA 02</span>
-                        <h3>Julian Janitus</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">JJ</span><span class="member-number">ANGGOTA 02</span><h3>Julian Janitus</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">A</span>
-                        <span class="member-number">ANGGOTA 03</span>
-                        <h3>Andrean</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">A</span><span class="member-number">ANGGOTA 03</span><h3>Andrean</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">MS</span>
-                        <span class="member-number">ANGGOTA 04</span>
-                        <h3>Machwell Seirn</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">MS</span><span class="member-number">ANGGOTA 04</span><h3>Machwell Seirn</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">DA</span>
-                        <span class="member-number">ANGGOTA 05</span>
-                        <h3>Dimas Aditya</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">DA</span><span class="member-number">ANGGOTA 05</span><h3>Dimas Aditya</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">ZE</span>
-                        <span class="member-number">ANGGOTA 06</span>
-                        <h3>Zakaria Editia</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">ZE</span><span class="member-number">ANGGOTA 06</span><h3>Zakaria Editia</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">OS</span>
-                        <span class="member-number">ANGGOTA 07</span>
-                        <h3>Octa Suhalim</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">OS</span><span class="member-number">ANGGOTA 07</span><h3>Octa Suhalim</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">AP</span>
-                        <span class="member-number">ANGGOTA 08</span>
-                        <h3>Albert Palndino</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">AP</span><span class="member-number">ANGGOTA 08</span><h3>Albert Palndino</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">MQ</span>
-                        <span class="member-number">ANGGOTA 09</span>
-                        <h3>Muhammad Qufron</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">MQ</span><span class="member-number">ANGGOTA 09</span><h3>Muhammad Qufron</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
-                    <button class="member" type="button"
-                        aria-expanded="false" onclick="pilihAnggota(this)">
-                        <span class="avatar">EA</span>
-                        <span class="member-number">ANGGOTA 10</span>
-                        <h3>Eko Alan Saputra</h3>
-                        <span class="member-detail">
-                            Bagian dari cerita Jejak Bersama Kawan.
-                        </span>
+                    <button class="member" type="button" aria-expanded="false" onclick="pilihAnggota(this)">
+                        <span class="avatar">EA</span><span class="member-number">ANGGOTA 10</span><h3>Eko Alan Saputra</h3>
+                        <span class="member-detail">Bagian dari cerita Jejak Bersama Kawan.</span>
                     </button>
-
                 </div>
             </div>
         </section>
 
         <!-- GALERI KENANGAN -->
-      
-<!-- GALERI KENANGAN -->
-<section class="content-section gallery-section" id="galeri">
-    <div class="container">
+        <section class="content-section gallery-section" id="galeri">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">Kumpulan momen</span>
+                        <h2 class="section-title">Galeri Kenangan.</h2>
+                        <p class="section-description">Momen sederhana yang berarti bagi kita.</p>
+                    </div>
+                </div>
 
-        <div class="section-heading">
-            <div>
-                <span class="section-label">Kumpulan momen</span>
-                <h2 class="section-title">Galeri Kenangan.</h2>
-                <p class="section-description">
-                    Momen sederhana yang berarti bagi kita.
-                </p>
+                <!-- FORM UPLOAD YANG DIPAKAI JAVASCRIPT -->
+                <div class="upload-section">
+                    <h3>Bagikan Kenangan</h3>
+                    <p class="upload-description">Unggah foto dan ceritakan momen bersama teman-teman.</p>
+
+                    <div id="upload-login-note" class="upload-login-note">
+                        Silakan login terlebih dahulu untuk mengunggah foto.
+                    </div>
+
+                    <form id="upload-form" class="upload-form" hidden>
+                        <label for="photo-author">Nama kamu</label>
+                        <input type="text" id="photo-author" maxlength="60" placeholder="Masukkan nama" required>
+
+                        <label for="photo-caption">Cerita foto</label>
+                        <textarea id="photo-caption" maxlength="500" placeholder="Ceritakan kenangan ini..." required></textarea>
+
+                        <label for="photo-file">Pilih foto</label>
+                        <input type="file" id="photo-file" accept="image/jpeg,image/png,image/webp" required>
+
+                        <button type="submit" class="upload-button" id="upload-button">Unggah Foto</button>
+                        <p class="upload-message" id="upload-message" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+
+                <!-- FOTO DARI SUPABASE AKAN MUNCUL DI SINI -->
+                <div class="gallery" id="gallery-list">
+                    <p class="gallery-status">Memuat galeri kenangan...</p>
+                </div>
             </div>
-        </div>
-
-        <!-- FORM UPLOAD -->
-        <div class="upload-section">
-
-            <h3>Bagikan Kenangan</h3>
-
-            <p class="upload-description">
-                Unggah foto dan ceritakan momen bersama teman-teman.
-            </p>
-
-            <div id="upload-login-note" class="upload-login-note">
-                Silakan login terlebih dahulu untuk mengunggah foto.
-            </div>
-
-            <form id="upload-form" class="upload-form" hidden>
-
-                <label for="photo-author">Nama kamu</label>
-                <input
-                    type="text"
-                    id="photo-author"
-                    maxlength="60"
-                    placeholder="Masukkan nama"
-                    required
-                >
-
-                <label for="photo-caption">Cerita foto</label>
-                <textarea
-                    id="photo-caption"
-                    maxlength="500"
-                    placeholder="Ceritakan kenangan ini..."
-                    required
-                ></textarea>
-
-                <label for="photo-file">Pilih foto</label>
-                <input
-                    type="file"
-                    id="photo-file"
-                    accept="image/jpeg,image/png,image/webp"
-                    required
-                >
-
-                <button
-                    type="submit"
-                    class="upload-button"
-                    id="upload-button"
-                >
-                    Unggah Foto
-                </button>
-
-                <p
-                    class="upload-message"
-                    id="upload-message"
-                    role="status"
-                    aria-live="polite"
-                ></p>
-
-            </form>
-        </div>
-
-        <!-- DAFTAR FOTO DARI SUPABASE -->
-        <div class="gallery" id="gallery-list">
-
-            <p class="gallery-status">
-                Memuat galeri kenangan...
-            </p>
-
-        </div>
-
-    </div>
-</section>
-
-
+        </section>
     </main>
 
     <!-- FOOTER -->
@@ -1083,15 +389,12 @@
     <!-- SUPABASE JAVASCRIPT LIBRARY -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- FUNGSI LOGIN DAN DAFTAR SUPABASE -->
+    <!-- KONEKSI SUPABASE DAN LOGIN/DAFTAR -->
     <script>
         const SUPABASE_URL = "https://iyxkdbyfbenaxgaqynmi.supabase.co";
         const SUPABASE_KEY = "sb_publishable_cUO0qeGtcDjTersVaf8scA_UPTx4MJ-";
 
-        const supabaseClient = window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY
-        );
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         const authForm = document.getElementById("auth-form");
         const authTitle = document.getElementById("auth-title");
@@ -1114,27 +417,11 @@
 
         function setAuthMode(signUp) {
             isSignUpMode = signUp;
-
-            authTitle.textContent = signUp
-                ? "Daftar Anggota"
-                : "Login Anggota";
-
-            authSubmit.textContent = signUp
-                ? "Buat Akun"
-                : "Login";
-
-            authSwitchText.textContent = signUp
-                ? "Sudah punya akun?"
-                : "Belum punya akun?";
-
-            authSwitch.textContent = signUp
-                ? "Login"
-                : "Daftar";
-
-            authPassword.autocomplete = signUp
-                ? "new-password"
-                : "current-password";
-
+            authTitle.textContent = signUp ? "Daftar Anggota" : "Login Anggota";
+            authSubmit.textContent = signUp ? "Buat Akun" : "Login";
+            authSwitchText.textContent = signUp ? "Sudah punya akun?" : "Belum punya akun?";
+            authSwitch.textContent = signUp ? "Login" : "Daftar";
+            authPassword.autocomplete = signUp ? "new-password" : "current-password";
             showAuthMessage("");
         }
 
@@ -1147,8 +434,7 @@
 
             if (user) {
                 authAccountRow.style.display = "flex";
-                authAccountEmail.textContent =
-                    "Masuk sebagai " + (user.email || "anggota");
+                authAccountEmail.textContent = "Masuk sebagai " + (user.email || "anggota");
             } else {
                 authAccountRow.style.display = "none";
                 authAccountEmail.textContent = "";
@@ -1162,65 +448,44 @@
             const password = authPassword.value;
 
             if (!email || !password) {
-                showAuthMessage(
-                    "Masukkan email dan password terlebih dahulu.",
-                    true
-                );
+                showAuthMessage("Masukkan email dan password terlebih dahulu.", true);
                 return;
             }
 
             authSubmit.disabled = true;
-            authSubmit.textContent = isSignUpMode
-                ? "Membuat akun..."
-                : "Memproses login...";
-
+            authSubmit.textContent = isSignUpMode ? "Membuat akun..." : "Memproses login...";
             showAuthMessage("");
 
             try {
                 if (isSignUpMode) {
-                    const { data, error } =
-                        await supabaseClient.auth.signUp({
-                            email: email,
-                            password: password
-                        });
+                    const { data, error } = await supabaseClient.auth.signUp({
+                        email: email,
+                        password: password
+                    });
 
-                    if (error) {
-                        throw error;
-                    }
+                    if (error) throw error;
 
                     if (data.session) {
-                        showAuthMessage(
-                            "Akun berhasil dibuat dan kamu sudah masuk."
-                        );
+                        showAuthMessage("Akun berhasil dibuat dan kamu sudah masuk.");
                     } else {
-                        showAuthMessage(
-                            "Pendaftaran berhasil dikirim. Periksa email untuk konfirmasi akun jika diminta."
-                        );
+                        showAuthMessage("Pendaftaran berhasil dikirim. Periksa email untuk konfirmasi akun jika diminta.");
                     }
                 } else {
-                    const { data, error } =
-                        await supabaseClient.auth.signInWithPassword({
-                            email: email,
-                            password: password
-                        });
+                    const { data, error } = await supabaseClient.auth.signInWithPassword({
+                        email: email,
+                        password: password
+                    });
 
-                    if (error) {
-                        throw error;
-                    }
+                    if (error) throw error;
 
                     renderAuthStatus(data.session);
                     showAuthMessage("Login berhasil.");
                 }
             } catch (error) {
-                showAuthMessage(
-                    error.message || "Terjadi kesalahan. Coba lagi.",
-                    true
-                );
+                showAuthMessage(error.message || "Terjadi kesalahan. Coba lagi.", true);
             } finally {
                 authSubmit.disabled = false;
-                authSubmit.textContent = isSignUpMode
-                    ? "Buat Akun"
-                    : "Login";
+                authSubmit.textContent = isSignUpMode ? "Buat Akun" : "Login";
             }
         });
 
@@ -1229,18 +494,12 @@
 
             try {
                 const { error } = await supabaseClient.auth.signOut();
-
-                if (error) {
-                    throw error;
-                }
+                if (error) throw error;
 
                 renderAuthStatus(null);
                 showAuthMessage("Kamu sudah keluar dari akun.");
             } catch (error) {
-                showAuthMessage(
-                    error.message || "Gagal keluar dari akun.",
-                    true
-                );
+                showAuthMessage(error.message || "Gagal keluar dari akun.", true);
             } finally {
                 authLogout.disabled = false;
             }
@@ -1251,539 +510,221 @@
         });
 
         async function loadInitialAuthStatus() {
-            const { data, error } = await supabaseClient.auth.getSession();
-
-            if (error) {
-                showAuthMessage(
-                    "Tidak dapat memeriksa sesi login: " + error.message,
-                    true
-                );
-                return;
+            try {
+                const { data, error } = await supabaseClient.auth.getSession();
+                if (error) throw error;
+                renderAuthStatus(data.session);
+            } catch (error) {
+                showAuthMessage("Tidak dapat memeriksa sesi login: " + error.message, true);
             }
-
-            renderAuthStatus(data.session);
         }
 
         loadInitialAuthStatus();
     </script>
 
-</script>
+    <!-- FITUR UPLOAD DAN GALERI FOTO -->
+    <script>
+        (() => {
+            const BUCKET_NAME = "jejakbersamakawan";
+            const TABLE_NAME = "posts";
 
-<!-- FITUR UPLOAD DAN GALERI FOTO -->
-<script>
+            const uploadForm = document.getElementById("upload-form");
+            const loginNote = document.getElementById("upload-login-note");
+            const authorInput = document.getElementById("photo-author");
+            const captionInput = document.getElementById("photo-caption");
+            const fileInput = document.getElementById("photo-file");
+            const uploadButton = document.getElementById("upload-button");
+            const uploadMessage = document.getElementById("upload-message");
+            const gallery = document.getElementById("gallery-list");
 
+            let currentUser = null;
 
-const uploadForm = document.getElementById("upload-form");
-
-// LANJUTKAN SEMUA KODE JAVASCRIPT UPLOAD FOTO
-// DI SINI
-<!-- ========================================= -->
-<!-- JAVASCRIPT FITUR UPLOAD DAN GALERI FOTO   -->
-<!-- ========================================= -->
-
-<script>
-(() => {
-    // Mengambil elemen galeri
-    const gallerySection = document.querySelector("#galeri .container");
-    const gallery = document.querySelector("#galeri .gallery");
-    const galleryNote = document.querySelector("#galeri .gallery-note");
-
-    if (!gallerySection || !gallery) {
-        console.error("Bagian galeri tidak ditemukan.");
-        return;
-    }
-
-    // Nama bucket dan tabel Supabase
-    const BUCKET_NAME = "jejakbersamakawan";
-    const TABLE_NAME = "posts";
-
-    let currentUser = null;
-
-    // =========================================
-    // TAMPILAN FORM UPLOAD
-    // =========================================
-
-    const uploadStyle = document.createElement("style");
-
-    uploadStyle.textContent = `
-        .upload-panel {
-            margin: 25px 0;
-            padding: 22px;
-            background: #121212;
-            border: 1px solid #303030;
-            border-radius: 7px;
-        }
-
-        .upload-panel h3 {
-            color: #f2f2f2;
-            font-size: 17px;
-            margin-bottom: 8px;
-        }
-
-        .upload-description {
-            color: #999;
-            font-size: 12px;
-            margin-bottom: 20px;
-        }
-
-        .upload-form {
-            display: grid;
-            gap: 13px;
-        }
-
-        .upload-form label {
-            display: block;
-            color: #ccc;
-            font-size: 12px;
-            margin-bottom: 7px;
-        }
-
-        .upload-form input,
-        .upload-form textarea {
-            width: 100%;
-            padding: 12px;
-            color: #fff;
-            background: #0c0c0c;
-            border: 1px solid #383838;
-            border-radius: 4px;
-            font: inherit;
-            font-size: 13px;
-        }
-
-        .upload-form textarea {
-            min-height: 85px;
-            resize: vertical;
-        }
-
-        .upload-form input[type="file"] {
-            cursor: pointer;
-        }
-
-        .upload-submit {
-            padding: 13px 20px;
-            color: #111;
-            background: #f1f1f1;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .upload-submit:hover {
-            background: #ccc;
-        }
-
-        .upload-submit:disabled {
-            opacity: .5;
-            cursor: not-allowed;
-        }
-
-        .upload-status {
-            color: #aaa;
-            font-size: 12px;
-            margin-top: 5px;
-        }
-
-        .uploaded-image {
-            width: 100%;
-            height: 230px;
-            display: block;
-            object-fit: cover;
-            background: #1b1b1b;
-        }
-
-        .uploaded-author {
-            padding: 12px 17px 0;
-            color: #999;
-            font-size: 11px;
-        }
-
-        .uploaded-caption {
-            padding: 8px 17px;
-            color: #ddd;
-            font-size: 13px;
-            overflow-wrap: anywhere;
-        }
-
-        .uploaded-date {
-            padding: 0 17px 14px;
-            color: #777;
-            font-size: 10px;
-        }
-
-        .gallery-empty {
-            grid-column: 1 / -1;
-            padding: 35px 15px;
-            color: #888;
-            text-align: center;
-            border: 1px dashed #383838;
-        }
-
-        @media (max-width: 600px) {
-            .upload-panel {
-                padding: 16px;
+            function showUploadMessage(message, isError = false) {
+                uploadMessage.textContent = message;
+                uploadMessage.style.color = isError ? "#ff9999" : "#c5c5c5";
             }
 
-            .uploaded-image {
-                height: 200px;
-            }
-        }
-    `;
+            function updateUploadStatus(session) {
+                currentUser = session?.user || null;
+                uploadForm.hidden = !currentUser;
+                loginNote.hidden = !!currentUser;
 
-    document.head.appendChild(uploadStyle);
-
-    // Membuat form upload secara otomatis
-    const uploadPanel = document.createElement("div");
-    uploadPanel.className = "upload-panel";
-
-    uploadPanel.innerHTML = `
-        <h3>Bagikan Kenangan.</h3>
-        <p class="upload-description">
-            Unggah foto dan ceritakan momen bersama teman-teman.
-        </p>
-
-        <form class="upload-form" id="upload-form">
-
-            <div>
-                <label for="upload-author-name">Nama anggota</label>
-                <input
-                    type="text"
-                    id="upload-author-name"
-                    placeholder="Masukkan nama kamu"
-                    maxlength="60"
-                    required
-                >
-            </div>
-
-            <div>
-                <label for="upload-caption">Cerita foto</label>
-                <textarea
-                    id="upload-caption"
-                    placeholder="Ceritakan kenangan ini..."
-                    maxlength="500"
-                    required
-                ></textarea>
-            </div>
-
-            <div>
-                <label for="upload-image">Pilih foto</label>
-                <input
-                    type="file"
-                    id="upload-image"
-                    accept="image/jpeg,image/png,image/webp"
-                    required
-                >
-            </div>
-
-            <button
-                type="submit"
-                class="upload-submit"
-                id="upload-submit"
-            >
-                Unggah Foto
-            </button>
-
-            <p
-                class="upload-status"
-                id="upload-status"
-                role="status"
-                aria-live="polite"
-            ></p>
-
-        </form>
-    `;
-
-    gallerySection.insertBefore(uploadPanel, gallery);
-
-    if (galleryNote) {
-        galleryNote.textContent =
-            "Foto yang diunggah anggota akan muncul di galeri ini.";
-    }
-
-    // Mengambil elemen form
-    const uploadForm = document.getElementById("upload-form");
-    const authorInput = document.getElementById("upload-author-name");
-    const captionInput = document.getElementById("upload-caption");
-    const imageInput = document.getElementById("upload-image");
-    const uploadButton = document.getElementById("upload-submit");
-    const uploadStatus = document.getElementById("upload-status");
-
-    // =========================================
-    // PESAN STATUS
-    // =========================================
-
-    function showUploadMessage(message, isError = false) {
-        uploadStatus.textContent = message;
-        uploadStatus.style.color = isError ? "#ff9999" : "#aaa";
-    }
-
-    // =========================================
-    // STATUS LOGIN
-    // =========================================
-
-    function updateUploadAccess(user) {
-        currentUser = user || null;
-
-        uploadButton.disabled = !currentUser;
-
-        if (currentUser) {
-            showUploadMessage("Kamu sudah login. Silakan unggah foto.");
-        } else {
-            showUploadMessage("Silakan login terlebih dahulu untuk mengunggah foto.");
-        }
-    }
-
-    // =========================================
-    // MENAMPILKAN FOTO DARI SUPABASE
-    // =========================================
-
-    function renderPosts(posts) {
-        gallery.innerHTML = "";
-
-        if (!posts || posts.length === 0) {
-            gallery.innerHTML = `
-                <p class="gallery-empty">
-                    Belum ada foto kenangan. Jadilah yang pertama mengunggah!
-                </p>
-            `;
-            return;
-        }
-
-        posts.forEach(function(post) {
-            const photoCard = document.createElement("article");
-            photoCard.className = "photo-card";
-
-            const image = document.createElement("img");
-            image.className = "uploaded-image";
-            image.src = supabaseClient.storage
-                .from(BUCKET_NAME)
-                .getPublicUrl(post.image_path).data.publicUrl;
-            image.alt = post.caption || "Foto kenangan";
-            image.loading = "lazy";
-
-            const author = document.createElement("div");
-            author.className = "uploaded-author";
-            author.textContent = "DIUNGGAH OLEH " +
-                (post.author_name || "Anggota");
-
-            const caption = document.createElement("div");
-            caption.className = "uploaded-caption";
-            caption.textContent = post.caption || "";
-
-            const date = document.createElement("div");
-            date.className = "uploaded-date";
-
-            date.textContent = post.created_at
-                ? new Date(post.created_at).toLocaleDateString("id-ID", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric"
-                })
-                : "";
-
-            photoCard.appendChild(image);
-            photoCard.appendChild(author);
-            photoCard.appendChild(caption);
-            photoCard.appendChild(date);
-
-            gallery.appendChild(photoCard);
-        });
-    }
-
-    // =========================================
-    // MEMUAT DATA FOTO
-    // =========================================
-
-    async function loadPosts() {
-        try {
-            const { data: sessionData, error: sessionError } =
-                await supabaseClient.auth.getSession();
-
-            if (sessionError) {
-                throw sessionError;
+                if (!currentUser) {
+                    gallery.innerHTML = '<p class="gallery-status">Login terlebih dahulu untuk melihat galeri kenangan.</p>';
+                }
             }
 
-            if (!sessionData.session) {
-                gallery.innerHTML = `
-                    <p class="gallery-empty">
-                        Login terlebih dahulu untuk melihat galeri kenangan.
-                    </p>
-                `;
-                return;
-            }
+            function renderGallery(posts) {
+                gallery.innerHTML = "";
 
-            const { data, error } = await supabaseClient
-                .from(TABLE_NAME)
-                .select("id, author_name, caption, image_path, created_at")
-                .order("created_at", { ascending: false });
+                if (!posts || posts.length === 0) {
+                    gallery.innerHTML = '<p class="gallery-status">Belum ada foto kenangan. Jadilah yang pertama!</p>';
+                    return;
+                }
 
-            if (error) {
-                throw error;
-            }
+                posts.forEach(function(post) {
+                    const card = document.createElement("article");
+                    card.className = "photo-card";
 
-            renderPosts(data);
+                    const image = document.createElement("img");
+                    image.className = "gallery-photo";
+                    image.alt = post.caption || "Foto kenangan";
+                    image.loading = "lazy";
+                    image.src = supabaseClient.storage
+                        .from(BUCKET_NAME)
+                        .getPublicUrl(post.image_path).data.publicUrl;
 
-        } catch (error) {
-            console.error("Gagal memuat foto:", error);
+                    const information = document.createElement("div");
+                    information.className = "photo-information";
 
-            gallery.innerHTML = `
-                <p class="gallery-empty">
-                    Gagal memuat foto: ${error.message}
-                </p>
-            `;
-        }
-    }
+                    const author = document.createElement("div");
+                    author.className = "photo-author";
+                    author.textContent = post.author_name || "Anggota";
 
-    // =========================================
-    // PROSES UPLOAD FOTO
-    // =========================================
+                    const description = document.createElement("div");
+                    description.className = "photo-description";
+                    description.textContent = post.caption || "";
 
-    uploadForm.addEventListener("submit", async function(event) {
-        event.preventDefault();
+                    const date = document.createElement("div");
+                    date.className = "photo-date";
+                    date.textContent = post.created_at
+                        ? new Date(post.created_at).toLocaleDateString("id-ID", {
+                            day: "numeric", month: "long", year: "numeric"
+                        })
+                        : "";
 
-        try {
-            const { data: sessionData, error: sessionError } =
-                await supabaseClient.auth.getSession();
-
-            if (sessionError) {
-                throw sessionError;
-            }
-
-            const user = sessionData.session?.user;
-
-            if (!user) {
-                showUploadMessage(
-                    "Kamu harus login sebelum mengunggah foto.",
-                    true
-                );
-                return;
-            }
-
-            const authorName = authorInput.value.trim();
-            const caption = captionInput.value.trim();
-            const imageFile = imageInput.files[0];
-
-            if (!authorName || !caption || !imageFile) {
-                showUploadMessage(
-                    "Lengkapi nama, cerita, dan pilih foto.",
-                    true
-                );
-                return;
-            }
-
-            if (!imageFile.type.startsWith("image/")) {
-                showUploadMessage("File harus berupa gambar.", true);
-                return;
-            }
-
-            if (imageFile.size > 10 * 1024 * 1024) {
-                showUploadMessage(
-                    "Ukuran foto maksimal 10 MB.",
-                    true
-                );
-                return;
-            }
-
-            uploadButton.disabled = true;
-            uploadButton.textContent = "Sedang Mengunggah...";
-            showUploadMessage("Mengunggah foto ke penyimpanan...");
-
-            // Membuat nama file yang aman
-            const safeFileName = imageFile.name
-                .toLowerCase()
-                .replace(/[^a-z0-9._-]/g, "-");
-
-            const imagePath =
-                user.id + "/" + Date.now() + "-" + safeFileName;
-
-            // Mengunggah foto ke Supabase Storage
-            const { error: storageError } = await supabaseClient
-                .storage
-                .from(BUCKET_NAME)
-                .upload(imagePath, imageFile, {
-                    cacheControl: "3600",
-                    upsert: false,
-                    contentType: imageFile.type
+                    information.append(author, description, date);
+                    card.append(image, information);
+                    gallery.appendChild(card);
                 });
-
-            if (storageError) {
-                throw storageError;
             }
 
-            showUploadMessage("Foto tersimpan. Menyimpan cerita...");
+            async function loadGallery() {
+                try {
+                    const { data, error } = await supabaseClient
+                        .from(TABLE_NAME)
+                        .select("id, author_name, caption, image_path, created_at")
+                        .order("created_at", { ascending: false });
 
-            // Menyimpan informasi foto ke tabel posts
-            const { error: databaseError } = await supabaseClient
-                .from(TABLE_NAME)
-                .insert({
-                    author_name: authorName,
-                    caption: caption,
-                    image_path: imagePath,
-                    user_id: user.id
-                });
-
-            if (databaseError) {
-                // Menghapus file jika penyimpanan data gagal
-                await supabaseClient.storage
-                    .from(BUCKET_NAME)
-                    .remove([imagePath]);
-
-                throw databaseError;
+                    if (error) throw error;
+                    renderGallery(data);
+                } catch (error) {
+                    console.error("Gagal memuat galeri:", error);
+                    gallery.innerHTML = "";
+                    const errorText = document.createElement("p");
+                    errorText.className = "gallery-status";
+                    errorText.textContent = "Gagal memuat galeri: " + error.message;
+                    gallery.appendChild(errorText);
+                }
             }
 
-            showUploadMessage("Foto berhasil diunggah!");
+            uploadForm.addEventListener("submit", async function(event) {
+                event.preventDefault();
+                let uploadedPath = null;
 
-            uploadForm.reset();
+                try {
+                    const { data: sessionData, error: sessionError } =
+                        await supabaseClient.auth.getSession();
+                    if (sessionError) throw sessionError;
 
-            // Memperbarui galeri
-            await loadPosts();
+                    const user = sessionData.session?.user;
+                    if (!user) {
+                        showUploadMessage("Silakan login terlebih dahulu.", true);
+                        return;
+                    }
 
-        } catch (error) {
-            console.error("Upload gagal:", error);
+                    const author = authorInput.value.trim();
+                    const caption = captionInput.value.trim();
+                    const file = fileInput.files[0];
 
-            showUploadMessage(
-                "Gagal mengunggah foto: " + error.message,
-                true
-            );
+                    if (!author || !caption || !file) {
+                        showUploadMessage("Lengkapi nama, cerita, dan pilih foto.", true);
+                        return;
+                    }
+                    if (!file.type.startsWith("image/")) {
+                        showUploadMessage("File harus berupa gambar.", true);
+                        return;
+                    }
+                    if (file.size > 10 * 1024 * 1024) {
+                        showUploadMessage("Ukuran foto maksimal 10 MB.", true);
+                        return;
+                    }
 
-        } finally {
-            uploadButton.disabled = !currentUser;
-            uploadButton.textContent = "Unggah Foto";
-        }
-    });
+                    uploadButton.disabled = true;
+                    uploadButton.textContent = "Sedang Mengunggah...";
+                    showUploadMessage("Sedang mengunggah foto...");
 
-    // =========================================
-    // MEMANTAU LOGIN DAN LOGOUT
-    // =========================================
+                    const safeName = file.name.toLowerCase().replace(/[^a-z0-9._-]/g, "-");
+                    uploadedPath = user.id + "/" + Date.now() + "-" + safeName;
 
-    supabaseClient.auth.onAuthStateChange(function(_event, session) {
-        currentUser = session ? session.user : null;
-        updateUploadAccess(currentUser);
+                    const { error: storageError } = await supabaseClient.storage
+                        .from(BUCKET_NAME)
+                        .upload(uploadedPath, file, {
+                            cacheControl: "3600",
+                            upsert: false,
+                            contentType: file.type
+                        });
 
-        Promise.resolve().then(function() {
-            loadPosts();
-        });
-    });
+                    if (storageError) throw storageError;
 
-    // Memeriksa sesi saat halaman pertama dibuka
-    async function initializeUpload() {
-        const { data, error } = await supabaseClient.auth.getSession();
+                    showUploadMessage("Foto tersimpan. Menyimpan cerita...");
 
-        if (error) {
-            showUploadMessage(error.message, true);
-            return;
-        }
+                    const { error: databaseError } = await supabaseClient
+                        .from(TABLE_NAME)
+                        .insert({
+                            author_name: author,
+                            caption: caption,
+                            image_path: uploadedPath,
+                            user_id: user.id
+                        });
 
-        updateUploadAccess(data.session?.user || null);
-        await loadPosts();
-    }
+                    if (databaseError) throw databaseError;
 
-    initializeUpload();
+                    uploadedPath = null;
+                    uploadForm.reset();
+                    showUploadMessage("Foto berhasil diunggah!");
+                    await loadGallery();
 
-})();
-</script>
+                } catch (error) {
+                    console.error("Upload gagal:", error);
 
-</script>
+                    if (uploadedPath) {
+                        const { error: removeError } = await supabaseClient.storage
+                            .from(BUCKET_NAME)
+                            .remove([uploadedPath]);
+                        if (removeError) console.error("Gagal menghapus file sementara:", removeError);
+                    }
+
+                    showUploadMessage("Gagal mengunggah: " + error.message, true);
+                } finally {
+                    uploadButton.disabled = !currentUser;
+                    uploadButton.textContent = "Unggah Foto";
+                }
+            });
+
+            supabaseClient.auth.onAuthStateChange(function(_event, session) {
+                updateUploadStatus(session);
+                if (session?.user) {
+                    // Jalankan setelah callback autentikasi selesai.
+                    Promise.resolve().then(loadGallery);
+                }
+            });
+
+            async function initializeUpload() {
+                try {
+                    const { data, error } = await supabaseClient.auth.getSession();
+                    if (error) throw error;
+                    updateUploadStatus(data.session);
+                    if (data.session) await loadGallery();
+                } catch (error) {
+                    console.error("Gagal memeriksa sesi upload:", error);
+                    showUploadMessage(error.message, true);
+                }
+            }
+
+            initializeUpload();
+        })();
+    </script>
 
 </body>
 </html>
