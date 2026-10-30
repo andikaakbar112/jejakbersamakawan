@@ -491,6 +491,130 @@
             color: #999;
             font-size: 12px;
         }
+        
+/* FITUR UPLOAD FOTO */
+
+.upload-section {
+    margin-bottom: 30px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+.upload-section h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.upload-description {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.upload-form label {
+    display: block;
+    color: var(--text);
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.upload-form input,
+.upload-form textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #080808;
+    color: white;
+    font: inherit;
+    font-size: 13px;
+}
+
+.upload-form textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.upload-form input:focus,
+.upload-form textarea:focus {
+    outline: 1px solid #aaa;
+}
+
+.upload-form input[type="file"] {
+    cursor: pointer;
+}
+
+.upload-button {
+    padding: 11px 20px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background: white;
+    color: #080808;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.upload-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.upload-message {
+    min-height: 20px;
+    margin-top: 12px;
+    color: var(--text);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.upload-login-note {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.gallery-photo {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    background: #181818;
+}
+
+.photo-information {
+    padding: 15px 17px;
+}
+
+.photo-author {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.photo-description {
+    margin-top: 5px;
+    color: #aaa;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.photo-date {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.gallery-status {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 20px 0;
+}
+
 
         /* FOOTER */
 
@@ -843,57 +967,91 @@
         </section>
 
         <!-- GALERI KENANGAN -->
-        <section class="content-section gallery-section" id="galeri">
-            <div class="container">
+      
+<!-- GALERI KENANGAN -->
+<section class="content-section gallery-section" id="galeri">
+    <div class="container">
 
-                <div class="section-heading">
-                    <div>
-                        <span class="section-label">Kumpulan momen</span>
-                        <h2 class="section-title">Galeri Kenangan.</h2>
-                        <p class="section-description">
-                            Momen sederhana yang berarti bagi kita.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="gallery">
-
-                    <article class="photo-card">
-                        <div class="photo-placeholder">
-                            <span class="photo-symbol">+</span>
-                            <h3>Awal Sebuah Cerita</h3>
-                            <p>Tempat foto kenangan pertama.</p>
-                        </div>
-                        <div class="photo-caption">KENANGAN / 01</div>
-                    </article>
-
-                    <article class="photo-card">
-                        <div class="photo-placeholder">
-                            <span class="photo-symbol">+</span>
-                            <h3>Waktu Bersama</h3>
-                            <p>Tempat menyimpan momen kebersamaan.</p>
-                        </div>
-                        <div class="photo-caption">KENANGAN / 02</div>
-                    </article>
-
-                    <article class="photo-card">
-                        <div class="photo-placeholder">
-                            <span class="photo-symbol">+</span>
-                            <h3>Cerita Berikutnya</h3>
-                            <p>Masih banyak kenangan menanti.</p>
-                        </div>
-                        <div class="photo-caption">KENANGAN / 03</div>
-                    </article>
-
-                </div>
-
-                <div class="gallery-note">
-                    Galeri ini masih berupa tampilan contoh.
-                    Fitur unggah foto online akan dibuat pada tahap berikutnya.
-                </div>
-
+        <div class="section-heading">
+            <div>
+                <span class="section-label">Kumpulan momen</span>
+                <h2 class="section-title">Galeri Kenangan.</h2>
+                <p class="section-description">
+                    Momen sederhana yang berarti bagi kita.
+                </p>
             </div>
-        </section>
+        </div>
+
+        <!-- FORM UPLOAD -->
+        <div class="upload-section">
+
+            <h3>Bagikan Kenangan</h3>
+
+            <p class="upload-description">
+                Unggah foto dan ceritakan momen bersama teman-teman.
+            </p>
+
+            <div id="upload-login-note" class="upload-login-note">
+                Silakan login terlebih dahulu untuk mengunggah foto.
+            </div>
+
+            <form id="upload-form" class="upload-form" hidden>
+
+                <label for="photo-author">Nama kamu</label>
+                <input
+                    type="text"
+                    id="photo-author"
+                    maxlength="60"
+                    placeholder="Masukkan nama"
+                    required
+                >
+
+                <label for="photo-caption">Cerita foto</label>
+                <textarea
+                    id="photo-caption"
+                    maxlength="500"
+                    placeholder="Ceritakan kenangan ini..."
+                    required
+                ></textarea>
+
+                <label for="photo-file">Pilih foto</label>
+                <input
+                    type="file"
+                    id="photo-file"
+                    accept="image/jpeg,image/png,image/webp"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="upload-button"
+                    id="upload-button"
+                >
+                    Unggah Foto
+                </button>
+
+                <p
+                    class="upload-message"
+                    id="upload-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+        </div>
+
+        <!-- DAFTAR FOTO DARI SUPABASE -->
+        <div class="gallery" id="gallery-list">
+
+            <p class="gallery-status">
+                Memuat galeri kenangan...
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
 
     </main>
 
@@ -1020,15 +1178,11 @@
 
             try {
                 if (isSignUpMode) {
-                  const { data, error } =
-    await supabaseClient.auth.signUp({
-        email: email,
-        password: password,
-        options: {
-            emailRedirectTo:
-                "https://andikaakbar112.github.io/jejakbersamakawan/"
-        }
-    });
+                    const { data, error } =
+                        await supabaseClient.auth.signUp({
+                            email: email,
+                            password: password
+                        });
 
                     if (error) {
                         throw error;
@@ -1112,6 +1266,524 @@
 
         loadInitialAuthStatus();
     </script>
+
+</script>
+
+<!-- FITUR UPLOAD DAN GALERI FOTO -->
+<script>
+
+
+const uploadForm = document.getElementById("upload-form");
+
+// LANJUTKAN SEMUA KODE JAVASCRIPT UPLOAD FOTO
+// DI SINI
+<!-- ========================================= -->
+<!-- JAVASCRIPT FITUR UPLOAD DAN GALERI FOTO   -->
+<!-- ========================================= -->
+
+<script>
+(() => {
+    // Mengambil elemen galeri
+    const gallerySection = document.querySelector("#galeri .container");
+    const gallery = document.querySelector("#galeri .gallery");
+    const galleryNote = document.querySelector("#galeri .gallery-note");
+
+    if (!gallerySection || !gallery) {
+        console.error("Bagian galeri tidak ditemukan.");
+        return;
+    }
+
+    // Nama bucket dan tabel Supabase
+    const BUCKET_NAME = "jejakbersamakawan";
+    const TABLE_NAME = "posts";
+
+    let currentUser = null;
+
+    // =========================================
+    // TAMPILAN FORM UPLOAD
+    // =========================================
+
+    const uploadStyle = document.createElement("style");
+
+    uploadStyle.textContent = `
+        .upload-panel {
+            margin: 25px 0;
+            padding: 22px;
+            background: #121212;
+            border: 1px solid #303030;
+            border-radius: 7px;
+        }
+
+        .upload-panel h3 {
+            color: #f2f2f2;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .upload-description {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .upload-form {
+            display: grid;
+            gap: 13px;
+        }
+
+        .upload-form label {
+            display: block;
+            color: #ccc;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .upload-form input,
+        .upload-form textarea {
+            width: 100%;
+            padding: 12px;
+            color: #fff;
+            background: #0c0c0c;
+            border: 1px solid #383838;
+            border-radius: 4px;
+            font: inherit;
+            font-size: 13px;
+        }
+
+        .upload-form textarea {
+            min-height: 85px;
+            resize: vertical;
+        }
+
+        .upload-form input[type="file"] {
+            cursor: pointer;
+        }
+
+        .upload-submit {
+            padding: 13px 20px;
+            color: #111;
+            background: #f1f1f1;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .upload-submit:hover {
+            background: #ccc;
+        }
+
+        .upload-submit:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .upload-status {
+            color: #aaa;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .uploaded-image {
+            width: 100%;
+            height: 230px;
+            display: block;
+            object-fit: cover;
+            background: #1b1b1b;
+        }
+
+        .uploaded-author {
+            padding: 12px 17px 0;
+            color: #999;
+            font-size: 11px;
+        }
+
+        .uploaded-caption {
+            padding: 8px 17px;
+            color: #ddd;
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .uploaded-date {
+            padding: 0 17px 14px;
+            color: #777;
+            font-size: 10px;
+        }
+
+        .gallery-empty {
+            grid-column: 1 / -1;
+            padding: 35px 15px;
+            color: #888;
+            text-align: center;
+            border: 1px dashed #383838;
+        }
+
+        @media (max-width: 600px) {
+            .upload-panel {
+                padding: 16px;
+            }
+
+            .uploaded-image {
+                height: 200px;
+            }
+        }
+    `;
+
+    document.head.appendChild(uploadStyle);
+
+    // Membuat form upload secara otomatis
+    const uploadPanel = document.createElement("div");
+    uploadPanel.className = "upload-panel";
+
+    uploadPanel.innerHTML = `
+        <h3>Bagikan Kenangan.</h3>
+        <p class="upload-description">
+            Unggah foto dan ceritakan momen bersama teman-teman.
+        </p>
+
+        <form class="upload-form" id="upload-form">
+
+            <div>
+                <label for="upload-author-name">Nama anggota</label>
+                <input
+                    type="text"
+                    id="upload-author-name"
+                    placeholder="Masukkan nama kamu"
+                    maxlength="60"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="upload-caption">Cerita foto</label>
+                <textarea
+                    id="upload-caption"
+                    placeholder="Ceritakan kenangan ini..."
+                    maxlength="500"
+                    required
+                ></textarea>
+            </div>
+
+            <div>
+                <label for="upload-image">Pilih foto</label>
+                <input
+                    type="file"
+                    id="upload-image"
+                    accept="image/jpeg,image/png,image/webp"
+                    required
+                >
+            </div>
+
+            <button
+                type="submit"
+                class="upload-submit"
+                id="upload-submit"
+            >
+                Unggah Foto
+            </button>
+
+            <p
+                class="upload-status"
+                id="upload-status"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+        </form>
+    `;
+
+    gallerySection.insertBefore(uploadPanel, gallery);
+
+    if (galleryNote) {
+        galleryNote.textContent =
+            "Foto yang diunggah anggota akan muncul di galeri ini.";
+    }
+
+    // Mengambil elemen form
+    const uploadForm = document.getElementById("upload-form");
+    const authorInput = document.getElementById("upload-author-name");
+    const captionInput = document.getElementById("upload-caption");
+    const imageInput = document.getElementById("upload-image");
+    const uploadButton = document.getElementById("upload-submit");
+    const uploadStatus = document.getElementById("upload-status");
+
+    // =========================================
+    // PESAN STATUS
+    // =========================================
+
+    function showUploadMessage(message, isError = false) {
+        uploadStatus.textContent = message;
+        uploadStatus.style.color = isError ? "#ff9999" : "#aaa";
+    }
+
+    // =========================================
+    // STATUS LOGIN
+    // =========================================
+
+    function updateUploadAccess(user) {
+        currentUser = user || null;
+
+        uploadButton.disabled = !currentUser;
+
+        if (currentUser) {
+            showUploadMessage("Kamu sudah login. Silakan unggah foto.");
+        } else {
+            showUploadMessage("Silakan login terlebih dahulu untuk mengunggah foto.");
+        }
+    }
+
+    // =========================================
+    // MENAMPILKAN FOTO DARI SUPABASE
+    // =========================================
+
+    function renderPosts(posts) {
+        gallery.innerHTML = "";
+
+        if (!posts || posts.length === 0) {
+            gallery.innerHTML = `
+                <p class="gallery-empty">
+                    Belum ada foto kenangan. Jadilah yang pertama mengunggah!
+                </p>
+            `;
+            return;
+        }
+
+        posts.forEach(function(post) {
+            const photoCard = document.createElement("article");
+            photoCard.className = "photo-card";
+
+            const image = document.createElement("img");
+            image.className = "uploaded-image";
+            image.src = supabaseClient.storage
+                .from(BUCKET_NAME)
+                .getPublicUrl(post.image_path).data.publicUrl;
+            image.alt = post.caption || "Foto kenangan";
+            image.loading = "lazy";
+
+            const author = document.createElement("div");
+            author.className = "uploaded-author";
+            author.textContent = "DIUNGGAH OLEH " +
+                (post.author_name || "Anggota");
+
+            const caption = document.createElement("div");
+            caption.className = "uploaded-caption";
+            caption.textContent = post.caption || "";
+
+            const date = document.createElement("div");
+            date.className = "uploaded-date";
+
+            date.textContent = post.created_at
+                ? new Date(post.created_at).toLocaleDateString("id-ID", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                })
+                : "";
+
+            photoCard.appendChild(image);
+            photoCard.appendChild(author);
+            photoCard.appendChild(caption);
+            photoCard.appendChild(date);
+
+            gallery.appendChild(photoCard);
+        });
+    }
+
+    // =========================================
+    // MEMUAT DATA FOTO
+    // =========================================
+
+    async function loadPosts() {
+        try {
+            const { data: sessionData, error: sessionError } =
+                await supabaseClient.auth.getSession();
+
+            if (sessionError) {
+                throw sessionError;
+            }
+
+            if (!sessionData.session) {
+                gallery.innerHTML = `
+                    <p class="gallery-empty">
+                        Login terlebih dahulu untuk melihat galeri kenangan.
+                    </p>
+                `;
+                return;
+            }
+
+            const { data, error } = await supabaseClient
+                .from(TABLE_NAME)
+                .select("id, author_name, caption, image_path, created_at")
+                .order("created_at", { ascending: false });
+
+            if (error) {
+                throw error;
+            }
+
+            renderPosts(data);
+
+        } catch (error) {
+            console.error("Gagal memuat foto:", error);
+
+            gallery.innerHTML = `
+                <p class="gallery-empty">
+                    Gagal memuat foto: ${error.message}
+                </p>
+            `;
+        }
+    }
+
+    // =========================================
+    // PROSES UPLOAD FOTO
+    // =========================================
+
+    uploadForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        try {
+            const { data: sessionData, error: sessionError } =
+                await supabaseClient.auth.getSession();
+
+            if (sessionError) {
+                throw sessionError;
+            }
+
+            const user = sessionData.session?.user;
+
+            if (!user) {
+                showUploadMessage(
+                    "Kamu harus login sebelum mengunggah foto.",
+                    true
+                );
+                return;
+            }
+
+            const authorName = authorInput.value.trim();
+            const caption = captionInput.value.trim();
+            const imageFile = imageInput.files[0];
+
+            if (!authorName || !caption || !imageFile) {
+                showUploadMessage(
+                    "Lengkapi nama, cerita, dan pilih foto.",
+                    true
+                );
+                return;
+            }
+
+            if (!imageFile.type.startsWith("image/")) {
+                showUploadMessage("File harus berupa gambar.", true);
+                return;
+            }
+
+            if (imageFile.size > 10 * 1024 * 1024) {
+                showUploadMessage(
+                    "Ukuran foto maksimal 10 MB.",
+                    true
+                );
+                return;
+            }
+
+            uploadButton.disabled = true;
+            uploadButton.textContent = "Sedang Mengunggah...";
+            showUploadMessage("Mengunggah foto ke penyimpanan...");
+
+            // Membuat nama file yang aman
+            const safeFileName = imageFile.name
+                .toLowerCase()
+                .replace(/[^a-z0-9._-]/g, "-");
+
+            const imagePath =
+                user.id + "/" + Date.now() + "-" + safeFileName;
+
+            // Mengunggah foto ke Supabase Storage
+            const { error: storageError } = await supabaseClient
+                .storage
+                .from(BUCKET_NAME)
+                .upload(imagePath, imageFile, {
+                    cacheControl: "3600",
+                    upsert: false,
+                    contentType: imageFile.type
+                });
+
+            if (storageError) {
+                throw storageError;
+            }
+
+            showUploadMessage("Foto tersimpan. Menyimpan cerita...");
+
+            // Menyimpan informasi foto ke tabel posts
+            const { error: databaseError } = await supabaseClient
+                .from(TABLE_NAME)
+                .insert({
+                    author_name: authorName,
+                    caption: caption,
+                    image_path: imagePath,
+                    user_id: user.id
+                });
+
+            if (databaseError) {
+                // Menghapus file jika penyimpanan data gagal
+                await supabaseClient.storage
+                    .from(BUCKET_NAME)
+                    .remove([imagePath]);
+
+                throw databaseError;
+            }
+
+            showUploadMessage("Foto berhasil diunggah!");
+
+            uploadForm.reset();
+
+            // Memperbarui galeri
+            await loadPosts();
+
+        } catch (error) {
+            console.error("Upload gagal:", error);
+
+            showUploadMessage(
+                "Gagal mengunggah foto: " + error.message,
+                true
+            );
+
+        } finally {
+            uploadButton.disabled = !currentUser;
+            uploadButton.textContent = "Unggah Foto";
+        }
+    });
+
+    // =========================================
+    // MEMANTAU LOGIN DAN LOGOUT
+    // =========================================
+
+    supabaseClient.auth.onAuthStateChange(function(_event, session) {
+        currentUser = session ? session.user : null;
+        updateUploadAccess(currentUser);
+
+        Promise.resolve().then(function() {
+            loadPosts();
+        });
+    });
+
+    // Memeriksa sesi saat halaman pertama dibuka
+    async function initializeUpload() {
+        const { data, error } = await supabaseClient.auth.getSession();
+
+        if (error) {
+            showUploadMessage(error.message, true);
+            return;
+        }
+
+        updateUploadAccess(data.session?.user || null);
+        await loadPosts();
+    }
+
+    initializeUpload();
+
+})();
+</script>
+
+</script>
 
 </body>
 </html>
